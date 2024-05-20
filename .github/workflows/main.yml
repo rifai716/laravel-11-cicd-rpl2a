@@ -57,7 +57,7 @@ jobs:
         run: |
           curl --location --request POST 'https://cicdrpl2a.cloud.deerdeveloper.com/send-message' \
           --form 'message="Proses Building Berhasil"' \
-          --form 'number="081252053793"' \
+          --form 'number="083823165507"' \
 
   laravel_test:
     name: Laravel Test
