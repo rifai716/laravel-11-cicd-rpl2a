@@ -32,7 +32,7 @@ jobs:
         run: php artisan key:generate
 
       - name: Create File Database
-        run: touch sfasfasfasfas/database.sqlite
+        run: touch database/database.sqlite
 
       - name: Run Migration Database
         run: php artisan migrate:fresh --seed
@@ -54,10 +54,10 @@ jobs:
       - name: Set Job Building status
         id: job-building-status
         if: ${{ success() }}
-        run: echo "::set-output name=status::success"
-      - name: Set Job Building status
-        if: ${{ failure() }}
-        run: echo "::set-output name=status::failure"
+        run: |
+          curl --location --request POST 'https://cicdrpl2a.cloud.deerdeveloper.com/send-message' \
+          --form 'message="Proses Building Berhasil"' \
+          --form 'number="081252053793"' \
 
   laravel_test:
     name: Laravel Test
