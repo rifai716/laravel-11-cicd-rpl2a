@@ -56,7 +56,7 @@ jobs:
         if: ${{ success() }}
         run: |
           curl --location --request POST 'https://cicdrpl2a.cloud.deerdeveloper.com/send-message' \
-          --form 'message="Proses Building Berhasil"' \
+          --form 'message="Proses Building Berhasil --- RPL 2A"' \
           --form 'number="083823165507"' \
 
   laravel_test:
