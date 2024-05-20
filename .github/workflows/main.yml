@@ -51,6 +51,14 @@ jobs:
       - name: Build Node.JS
         run: npm run build
 
+      - name: Set Job Building status
+        id: job-building-status
+        if: ${{ success() }}
+        run: echo "::set-output name=status::success"
+      - name: Set Job Building status
+        if: ${{ failure() }}
+        run: echo "::set-output name=status::failure"
+
   laravel_test:
     name: Laravel Test
     runs-on: ubuntu-latest
